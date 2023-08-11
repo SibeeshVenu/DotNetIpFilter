@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetIpFilter", "Dev\DotNetIpFilter.csproj", "{9E773901-101B-4B56-9F84-2EEF64DDF912}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetIpFilter.Test", "Test\DotNetIpFilter.Test\DotNetIpFilter.Test.csproj", "{9501A710-65AC-425B-ADBD-02CA8F1CB9DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetIpFilter.Test", "Tests\DotNetIpFilter.Test\DotNetIpFilter.Test.csproj", "{9501A710-65AC-425B-ADBD-02CA8F1CB9DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
