@@ -23,7 +23,7 @@ namespace DotNetIpFilter.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            this.logger.LogInformation($"{nameof(IpFilterService)}.{nameof(Get)} start");
+            this.logger.LogInformation($"{nameof(WeatherForecastController)}.{nameof(Get)} start");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
