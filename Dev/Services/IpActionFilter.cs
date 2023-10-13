@@ -51,12 +51,28 @@ namespace DotNetIpFilter.Services
 
                 foreach (var address in ipAddresses)
                 {
-                    var testIp = IPAddress.Parse(address);
-
-                    if (testIp.Equals(remoteIp))
+                    // if it has / character, it is a range
+                    if (address.Contains('/'))
                     {
-                        badIp = false;
-                        break;
+                        var splitPrefix = address.Split('/');
+                        var ipValidator = new IPNetwork(IPAddress.Parse(splitPrefix[0]), Convert.ToInt16(splitPrefix[1]));
+                        var res = ipValidator.Contains(remoteIp);
+
+                        if (res)
+                        {
+                            badIp = false;
+                            break;
+                        }
+
+                    }
+                    else
+                    {
+                        var curIp = IPAddress.Parse(address);
+                        if (curIp.Equals(remoteIp))
+                        {
+                            badIp = false;
+                            break;
+                        }
                     }
                 }
 
