@@ -27,9 +27,9 @@
             this.logger.LogInformation($"{nameof(IpFilterService)}.{nameof(GetAdminSafeIpList)} start");
             // To mimic an async call, this can be your API to get the IP addresses
             await Task.Delay(1000);
-            // Sample IP addresses, this is where we make an async call to get the IP addresses
-            // Adding ::1 it for localhost
-            var ipListArray = "111.88.180.140;111.78.156.140;120.88.180.140/32;130.78.156.140/32;::1"; 
+            // Sample IP addresses, this is where you get all IP addresses from your database or services using an async call.
+            // Added ::1 for localhost. 
+            var ipListArray = "127.0.0.1;192.168.1.5;128.0.0.1/32;128.168.1.5/32;::1"; 
             this.logger.LogInformation($"{nameof(IpFilterService)}.{nameof(GetAdminSafeIpList)} end");
             return ipListArray;
         }

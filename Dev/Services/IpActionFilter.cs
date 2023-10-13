@@ -35,6 +35,7 @@ namespace DotNetIpFilter.Services
         /// <exception cref="ArgumentException"></exception>
         public override void OnActionExecuting(ActionExecutingContext context)
         {
+            this.logger.LogInformation($"{nameof(IpActionFilter)}.{nameof(OnActionExecuting)} start");
             try
             {
                 if (context == null) { throw new ArgumentException($"{nameof(IpActionFilter)}.{nameof(OnActionExecuting)} {nameof(context)} is null"); }

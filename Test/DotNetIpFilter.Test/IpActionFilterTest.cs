@@ -26,12 +26,12 @@ namespace DotNetIpFilter.Test
         public void IpActionFilterTestWhenValidIp()
         {
             var counter = 0;
-            var validIps = "120.78.179.140;111.78.179.170";
+            var validIps = "127.0.0.1;192.168.1.5";
             var IpFilterService = Substitute.For<IIpFilterService>();
             IpFilterService.When(x => x.GetAdminSafeIpList()).Do(x => counter++);
             IpFilterService.GetAdminSafeIpList().Returns(validIps);
 
-            var incomingIp = IPAddress.Parse("120.78.179.140");
+            var incomingIp = IPAddress.Parse("127.0.0.1");
             var modelState = new ModelStateDictionary();
             var actionContext = new ActionContext(
                    Substitute.For<HttpContext>(),
@@ -56,11 +56,11 @@ namespace DotNetIpFilter.Test
         [TestMethod]
         public void IpActionFilterTestWhenInValidIp()
         {
-            var validIps = "111.78.179.140;111.78.179.170";
+            var validIps = "127.0.0.1;192.168.1.5";
             var IpFilterService = Substitute.For<IIpFilterService>();
             IpFilterService.GetAdminSafeIpList().Returns(validIps);
 
-            var incomingIp = IPAddress.Parse("120.78.179.140");
+            var incomingIp = IPAddress.Parse("127.0.0.5");
             var modelState = new ModelStateDictionary();
             var actionContext = new ActionContext(
                    Substitute.For<HttpContext>(),
